@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏛️ GALA RESET 2025</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #d4af37;
+            --gold-light: #f4d03f;
+            --dark-bg: #0a0a0f;
+            --card-bg: rgba(20, 20, 35, 0.8);
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark-bg);
+            color: #fff;
+            overflow-x: hidden;
+        }
+        
+        .font-display { font-family: 'Playfair Display', serif; }
+        
+        /* Animated gradient background */
+        .gradient-bg {
+            background: linear-gradient(-45deg, #0a0a0f, #1a1a2e, #16213e, #0f3460, #1a1a2e);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Glassmorphism */
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .glass-gold {
+            background: rgba(212, 175, 55, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        
+        /* Gold text gradient */
+        .gold-text {
+            background: linear-gradient(135deg, #d4af37 0%, #f4d03f 50%, #d4af37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Scroll animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-100px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .reveal-left.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(100px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .reveal-right.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .reveal-scale.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        /* Award cards */
+        .award-card {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .award-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px -12px rgba(212, 175, 55, 0.25);
+        }
+        
+        .award-card:hover .award-image {
+            transform: scale(1.05);
+        }
+        
+        .award-image {
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        /* Floating particles */
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--gold);
+            border-radius: 50%;
+            animation: float 8s infinite ease-in-out;
+            opacity: 0.3;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.3; }
+            50% { transform: translateY(-100px) rotate(180deg); opacity: 0.8; }
+        }
+        
+        /* Glow effects */
+        .glow-gold {
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+        }
+        
+        .glow-green {
+            box-shadow: 0 0 30px rgba(34, 197, 94, 0.3);
+        }
+        
+        .glow-red {
+            box-shadow: 0 0 30px rgba(239, 68, 68, 0.3);
+        }
+        
+        /* Image frame */
+        .image-frame {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1rem;
+        }
+        
+        .image-frame::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border: 2px solid transparent;
+            border-radius: 1rem;
+            background: linear-gradient(135deg, var(--gold), transparent, var(--gold)) border-box;
+            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            z-index: 1;
+        }
+        
+        /* Progress bar on scroll */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+            z-index: 9999;
+            transition: width 0.1s;
+        }
+        
+        /* Section divider */
+        .divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+        
+        /* Quote styling */
+        .quote {
+            position: relative;
+            padding-left: 1.5rem;
+            border-left: 3px solid var(--gold);
+            font-style: italic;
+        }
+        
+        /* Sticky navigation */
+        .nav-item {
+            transition: all 0.3s ease;
+        }
+        
+        .nav-item:hover {
+            color: var(--gold);
+            transform: translateY(-2px);
+        }
+        
+        /* Badge styles */
+        .badge-unanimity {
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); }
+            50% { box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); }
+        }
+        
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--dark-bg); }
+        ::-webkit-scrollbar-thumb { 
+            background: linear-gradient(var(--gold), var(--gold-light)); 
+            border-radius: 4px;
+        }
+        
+        /* Hero parallax */
+        .hero-content {
+            transform: translateY(calc(var(--scroll) * 0.5px));
+        }
+        
+        /* Number counter animation */
+        .counter {
+            font-variant-numeric: tabular-nums;
+        }
+    </style>
+</head>
+<body class="gradient-bg min-h-screen">
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
+    
+    <!-- Floating Particles -->
+    <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+        <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
+        <div class="particle" style="left: 20%; animation-delay: 1s;"></div>
+        <div class="particle" style="left: 30%; animation-delay: 2s;"></div>
+        <div class="particle" style="left: 50%; animation-delay: 3s;"></div>
+        <div class="particle" style="left: 70%; animation-delay: 4s;"></div>
+        <div class="particle" style="left: 80%; animation-delay: 5s;"></div>
+        <div class="particle" style="left: 90%; animation-delay: 6s;"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass py-4 px-6 opacity-0 -translate-y-full transition-all duration-500" id="navbar">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <span class="font-display text-xl gold-text font-bold">GALA RESET 2025</span>
+            <div class="hidden md:flex gap-6 text-sm">
+                <a href="#positivos" class="nav-item">🏆 Positivos</a>
+                <a href="#negativos" class="nav-item">💀 Antiawards</a>
+                <a href="#secundarios" class="nav-item">🎭 Secundarios</a>
+                <a href="#sentencia" class="nav-item">⚖️ Sentencia</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="min-h-screen flex items-center justify-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0a0a0f]"></div>
+        
+        <div class="hero-content text-center px-6 relative z-10">
+            <div class="reveal-scale">
+                <span class="text-6xl md:text-8xl mb-4 block">🏛️</span>
+            </div>
+            <h1 class="font-display text-5xl md:text-8xl font-black mb-4 reveal">
+                <span class="gold-text">GALA RESET</span>
+            </h1>
+            <h2 class="font-display text-3xl md:text-5xl text-white/80 mb-8 reveal" style="transition-delay: 0.2s;">
+                2025
+            </h2>
+            <p class="text-lg md:text-xl text-white/60 max-w-2xl mx-auto mb-8 reveal" style="transition-delay: 0.4s;">
+                Tribunal Supremo de la Sala de lo Civil y Penal del WhatsApp
+            </p>
+            
+            <div class="flex flex-wrap justify-center gap-4 mb-12 reveal" style="transition-delay: 0.6s;">
+                <div class="glass-gold rounded-full px-6 py-3">
+                    <span class="text-2xl font-bold gold-text counter" data-target="28210">0</span>
+                    <span class="text-white/60 text-sm ml-2">mensajes analizados</span>
+                </div>
+                <div class="glass-gold rounded-full px-6 py-3">
+                    <span class="text-2xl font-bold gold-text counter" data-target="10">0</span>
+                    <span class="text-white/60 text-sm ml-2">premios otorgados</span>
+                </div>
+                <div class="glass-gold rounded-full px-6 py-3">
+                    <span class="text-2xl font-bold gold-text counter" data-target="5">0</span>
+                    <span class="text-white/60 text-sm ml-2">jurados independientes</span>
+                </div>
+            </div>
+            
+            <a href="#positivos" class="reveal inline-flex items-center gap-2 glass-gold px-8 py-4 rounded-full text-white font-semibold hover:scale-105 transition-transform" style="transition-delay: 0.8s;">
+                Descubrir Ganadores
+                <svg class="w-5 h-5 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+            </a>
+        </div>
+    </header>
+
+    <!-- Premios Positivos Section -->
+    <section id="positivos" class="py-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-5xl mb-4 block reveal">🏆</span>
+                <h2 class="font-display text-4xl md:text-6xl font-bold gold-text mb-4 reveal">
+                    PREMIOS AL MÉRITO CIVIL
+                </h2>
+                <div class="divider max-w-xs mx-auto reveal"></div>
+            </div>
+
+            <!-- Award 1: El Organizador -->
+            <article class="award-card glass rounded-3xl overflow-hidden mb-12 reveal-left">
+                <div class="grid md:grid-cols-2 gap-0">
+                    <div class="image-frame aspect-square md:aspect-auto">
+                        <img src="EL_ORGANIZADOR_-_David_Hernandez.png" alt="David Hernandez - El Organizador" class="award-image w-full h-full object-cover">
+                    </div>
+                    <div class="p-8 md:p-12 flex flex-col justify-center">
+                        <div class="flex items-center gap-4 mb-6">
+                            <span class="text-4xl">1️⃣</span>
+                            <div>
+                                <span class="text-sm text-white/50 uppercase tracking-wider">Premio al Mérito</span>
+                                <h3 class="font-display text-2xl md:text-3xl font-bold">🗓️ EL ORGANIZADOR</h3>
+                            </div>
+                            <span class="ml-auto glass-gold px-4 py-2 rounded-full text-sm font-semibold">3/5 votos</span>
+                        </div>
+                        
+                        <h4 class="text-3xl md:text-4xl font-display gold-text font-bold mb-6">DAVID HERNANDEZ</h4>
+                        
+                        <div class="glass rounded-xl p-6 mb-6">
+                            <h5 class="text-sm uppercase tracking-wider text-white/50 mb-3">⚖️ Veredicto Final</h5>
+                            <p class="text-white/80">Se desestiman las candidaturas de <strong class="text-white">Olaf</strong> (buen iniciador) y <strong class="text-white">Alex</strong> (ejecutor puntual). David gana porque hace el <span class="gold-text font-semibold">trabajo sucio que nadie quiere</span>.</p>
+                        </div>
+                        
+                        <p class="text-white/70 mb-6">
+                            Ser organizador no es tener ideas, es tener paciencia. David es el contable y secretario que evita que el grupo sea una anarquía financiera. Persigue morosos, hace listas y reclama Bizums.
+                        </p>
+                        
+                        <div class="quote text-white/60 bg-white/5 p-4 rounded-r-xl">
+                            <p>"solo me ha hecho bizum motx. sois unos sinverguenzas de la pera"</p>
+                            <span class="text-xs text-white/40 mt-2 block">— La frase de un hombre harto</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Award 2: El Mediador -->
+            <article class="award-card glass rounded-3xl overflow-hidden mb-12 reveal-right">
+                <div class="grid md:grid-cols-2 gap-0">
+                    <div class="p-8 md:p-12 flex flex-col justify-center order-2 md:order-1">
+                        <div class="flex items-center gap-4 mb-6">
+                            <span class="text-4xl">2️⃣</span>
+                            <div>
+                                <span class="text-sm text-white/50 uppercase tracking-wider">Premio al Mérito</span>
+                                <h3 class="font-display text-2xl md:text-3xl font-bold">🕊️ EL MEDIADOR</h3>
+                            </div>
+                            <span class="ml-auto glass-gold px-4 py-2 rounded-full text-sm font-semibold">3/5 votos</span>
+                        </div>
+                        
+                        <h4 class="text-3xl md:text-4xl font-display gold-text font-bold mb-6">OLAF ZAMORA</h4>
+                        
+                        <div class="glass rounded-xl p-6 mb-6">
+                            <h5 class="text-sm uppercase tracking-wider text-white/50 mb-3">⚖️ Veredicto Final</h5>
+                            <p class="text-white/80">Cuando el grupo toca temas tabú o hay tensión real, Olaf interviene con filosofía de "vive y deja vivir". Es el <span class="gold-text font-semibold">casco azul de la ONU</span> en vuestra guerra de egos.</p>
+                        </div>
+                        
+                        <p class="text-white/70 mb-6">
+                            Su habilidad para normalizar situaciones tensas con ejemplos biológicos es magistral. Diplomacia de alto nivel basada en funciones corporales.
+                        </p>
+                        
+                        <div class="quote text-white/60 bg-white/5 p-4 rounded-r-xl">
+                            <p>"que la gente también va a cagar y así y que no pasa nada vamos"</p>
+                            <span class="text-xs text-white/40 mt-2 block">— Filosofía escatológica digna del Nobel de la Paz</span>
+                        </div>
+                    </div>
+                    <div class="image-frame aspect-square md:aspect-auto order-1 md:order-2">
+                        <img src="EL_MEDIADOR_-_Olaf_Zamora.png" alt="Olaf Zamora - El Mediador" class="award-image w-full h-full object-cover">
+                    </div>
+                </div>
+            </article>
+
+            <!-- Award 3: El Fiel -->
+            <article class="award-card glass rounded-3xl overflow-hidden mb-12 reveal-left">
+                <div class="grid md:grid-cols-2 gap-0">
+                    <div class="image-frame aspect-square md:aspect-auto">
+                        <img src="EL_FIEL_-_Mikel_Pintos.png" alt="Mikel Pintos - El Fiel" class="award-image w-full h-full object-cover">
+                    </div>
+                    <div class="p-8 md:p-12 flex flex-col justify-center">
+                        <div class="flex items-center gap-4 mb-6">
+                            <span class="text-4xl">3️⃣</span>
+                            <div>
+                                <span class="text-sm text-white/50 uppercase tracking-wider">Premio al Mérito</span>
+                                <h3 class="font-display text-2xl md:text-3xl font-bold">🫡 EL FIEL</h3>
+                            </div>
+                            <span class="ml-auto glass-gold px-4 py-2 rounded-full text-sm font-semibold">3/5 votos</span>
+                        </div>
+                        
+                        <h4 class="text-3xl md:text-4xl font-display gold-text font-bold mb-6">MIKEL PINTOS</h4>
+                        
+                        <div class="glass rounded-xl p-6 mb-6">
+                            <h5 class="text-sm uppercase tracking-wider text-white/50 mb-3">⚖️ Veredicto Final</h5>
+                            <p class="text-white/80">Este premio no es "más activo", es <span class="gold-text font-semibold">"digo voy y aparezco sin drama"</span>. Mikel es un francotirador: dispara una bala ("Voy") y da en el blanco.</p>
+                        </div>
+                        
+                        <p class="text-white/70 mb-6">
+                            Sin dramas, sin preguntas existenciales. Si dice "voy", aparece. Es el soldado que todo ejército necesita. Su "in" es un contrato vinculante.
+                        </p>
+                        
+                        <div class="quote text-white/60 bg-white/5 p-4 rounded-r-xl">
+                            <p>"Yo no sé cuándo es y eso pero in"</p>
+                            <span class="text-xs text-white/40 mt-2 block">— Fe ciega. El soldado perfecto.</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Award 4: El Gracioso (UNANIMIDAD) -->
+            <article class="award-card glass rounded-3xl overflow-hidden mb-12 reveal-scale glow-gold relative">
+                <!-- Unanimidad Badge -->
+                <div class="absolute top-4 right-4 z-20 badge-unanimity px-4 py-2 rounded-full text-sm font-bold text-white flex items-center gap-2">
+                    👑 UNANIMIDAD 5/5
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-0">
+                    <div class="p-8 md:p-12 flex flex-col justify-center order-2 md:order-1">
+                        <div class="flex items-center gap-4 mb-6">
+                            <span class="text-4xl">4️⃣</span>
+                            <div>
+                                <span class="text-sm text-white/50 uppercase tracking-wider">Premio al Mérito</span>
+                                <h3 class="font-display text-2xl md:text-3xl font-bold">🤡 EL GRACIOSO</h3>
+                            </div>
+                        </div>
+                        
+                        <h4 class="text-3xl md:text-4xl font-display gold-text font-bold mb-6">JON ARANZABAL 👑</h4>
+                        
+                        <div class="bg-gradient-to-r from-yellow-500/20 to-amber-500/20 border border-yellow-500/30 rounded-xl p-6 mb-6">
+                            <h5 class="text-sm uppercase tracking-wider text-yellow-400 mb-3">🏆 UNANIMIDAD HISTÓRICA</h5>
+                            <p class="text-white/90">5 de 5 análisis. <strong>Nunca en la historia de esta gala</strong> se había visto tal consenso. KO técnico en primera ronda. <span class="gold-text font-semibold">Caso cerrado por aplastamiento.</span></p>
+                        </div>
+                        
+                        <p class="text-white/70 mb-6">
+                            Economía del lenguaje. No necesita 50 audios. Necesita una frase incómoda y sexualmente ambigua para desmontar al grupo entero. Es el rey del roast seco.
+                        </p>
+                        
+                        <div class="quote text-white/60 bg-yellow-500/10 border-yellow-500 p-4 rounded-r-xl">
+                            <p class="text-lg">"yo creo que debemos besarnos... con lengua"</p>
+                            <span class="text-xs text-white/40 mt-2 block">— Patrimonio inmaterial del grupo. Debería estar en el escudo.</span>
+                        </div>
+                    </div>
+                    <div class="image-frame aspect-square md:aspect-auto order-1 md:order-2">
+                        <img src="EL_GRACIOSO_-_Jon_Aranzabal.png" alt="Jon Aranzabal - El Gracioso" class="award-image w-full h-full object-cover">
+                    </div>
+                </div>
+            </article>
+
+            <!-- Award 5: El Nostálgico -->
+            <article class="award-card glass rounded-3xl overflow-hidden mb-12 reveal-left">
+                <div class="grid md:grid-cols-2 gap-0">
+                    <div class="image-frame aspect-square md:aspect-auto">
+                        <img src="EL_NOSTÁLGICO_-_Sein.png" alt="Sein - El Nostálgico" class="award-image w-full h-full object-cover">
+                    </div>
+                    <div class="p-8 md:p-12 flex flex-col justify-center">
+                        <div class="flex items-center gap-4 mb-6">
+                            <span class="text-4xl">5️⃣</span>
+                            <div>
+                                <span class="text-sm text-white/50 uppercase tracking-wider">Premio al Mérito</span>
+                                <h3 class="font-display text-2xl md:text-3xl font-bold">🥺 EL NOSTÁLGICO</h3>
+                            </div>
+                            <span class="ml-auto glass-gold px-4 py-2 rounded-full text-sm font-semibold">3/5 votos</span>
+                        </div>
+                        
+                        <h4 class="text-3xl md:text-4xl font-display gold-text font-bold mb-6">SEIN</h4>
+                        
+                        <div class="glass rounded-xl p-6 mb-6">
+                            <h5 class="text-sm uppercase tracking-wider text-white/50 mb-3">⚖️ Veredicto Final</h5>
+                            <p class="text-white/80"><strong class="text-white">Murua</strong> tiene nostalgia histórica. <strong class="text-white">Gorka</strong> aporta fotos. Pero Sein gana por <span class="gold-text font-semibold">nostalgia emocional</span>: echa de menos a las personas, no solo a los tiempos.</p>
+                        </div>
+                        
+                        <p class="text-white/70 mb-6">
+                            Es el único que verbaliza sentimientos de abandono o cariño real hacia los miembros. Su nostalgia es afectiva, no política. Es el corazón sensiblero del grupo.
+                        </p>
+                        
+                        <div class="quote text-white/60 bg-white/5 p-4 rounded-r-xl">
+                            <p>"El Mikel Pintos las metía de locos. se echa de menos."</p>
+                            <span class="text-xs text-white/40 mt-2 block">— Recuerda ausencias, etapas, personas, sensaciones.</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="py-20">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="glass-gold rounded-3xl p-12 text-center reveal-scale">
+                <span class="text-6xl mb-6 block">☠️</span>
+                <h3 class="font-display text-3xl md:text-4xl font-bold text-white mb-4">
+                    Preparaos para lo peor...
+                </h3>
+                <p class="text-white/60 text-lg">Los siguientes premios requieren piel gruesa y sentido del humor</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Antiawards Section -->
+    <section id="negativos" class="py-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-5xl mb-4 block reveal">💀</span>
+                <h2 class="font-display text-4xl md:text-6xl font-bold mb-4 reveal">
+                    <span class="text-red-500">ANTIAWARDS</span>
+                </h2>
+                <p class="text-white/50 text-xl reveal">Código Penal del WhatsApp</p>
+                <div class="divider max-w-xs mx-auto mt-6 reveal" style="background: linear-gradient(90deg, transparent, #ef4444, transparent);"></div>
+            </div>
+
+            <!-- Award 6: El Desaparecido -->
+            <article class="award-card glass rounded-3xl overflow-hidden mb-12 reveal-right border-l-4 border-red-500">
+                <div class="grid md:grid-cols-2 gap-0">
+                    <div class="p-8 md:p-12 flex flex-col justify-center order-2 md:order-1">
+                        <div class="flex items-center gap-4 mb-6">
+                            <span class="text-4xl">6️⃣</span>
+                            <div>
+                                <span class="text-sm text-red-400/70 uppercase tracking-wider">Antiaward</span>
+                                <h3 class="font-display text-2xl md:text-3xl font-bold">👻 EL DESAPARECIDO</h3>
+                            </div>
+                            <span class="ml-auto bg-red-500/20 border border-red-500/30 px-4 py-2 rounded-full text-sm font-semibold text-red-400">3/5 votos</span>
+                        </div>
+                        
+                        <h4 class="text-3xl md:text-4xl font-display text-red-400 font-bold mb-6">OMAR URRIZOLA</h4>
+                        
+                        <div class="bg-red-500/10 border border-red-500/20 rounded-xl p-6 mb-6">
+                            <h5 class="text-sm uppercase tracking-wider text-red-400/70 mb-3">⚖️ Veredicto Final</h5>
+                            <p class="text-white/80"><strong class="text-white">Kevin</strong> directamente no está. Pero Omar gana porque es un <span class="text-red-400 font-semibold">fantasma existencial</span>: entra, suelta una bomba conceptual, y vuelve a la sombra.</p>
+                        </div>
+                        
+                        <p class="text-white/70 mb-6">
+                            Es como una aparición mariana. Pasan cientos de mensajes, dramas, planes y rupturas de ligamentos, y él no está. De repente, aparece para soltar un dato random y vuelve a desvanecerse en la niebla.
+                        </p>
+                        
+                        <div class="quote text-white/60 bg-red-500/5 border-red-500 p-4 rounded-r-xl">
+                            <p>"Ritual de humillación Lionel Messi" / "Soy austrohúngaro"</p>
+                            <span class="text-xs text-white/40 mt-2 block">— Y silencio durante semanas.</span>
+                        </div>
+                    </div>
+                    <div class="image-frame aspect-square md:aspect-auto order-1 md:order-2">
+                        <img src="EL_DESAPARECIDO_-_Omar_Urrizola.png" alt="Omar Urrizola - El Desaparecido" class="award-image w-full h-full object-cover">
+                    </div>
+                </div>
+            </article>
+
+            <!-- Award 7: El Rajado -->
+            <article class="award-card glass rounded-3xl overflow-hidden mb-12 reveal-left border-l-4 border-red-500">
+                <div class="grid md:grid-cols-2 gap-0">
+                    <div class="image-frame aspect-square md:aspect-auto">
+                        <img src="EL_RAJADO_-_Olaf_Zamora.png" alt="Olaf Zamora - El Rajado" class="award-image w-full h-full object-cover">
+                    </div>
+                    <div class="p-8 md:p-12 flex flex-col justify-center">
+                        <div class="flex items-center gap-4 mb-6">
+                            <span class="text-4xl">7️⃣</span>
+                            <div>
+                                <span class="text-sm text-red-400/70 uppercase tracking-wider">Antiaward</span>
+                                <h3 class="font-display text-2xl md:text-3xl font-bold">🏃‍♂️ EL RAJADO</h3>
+                            </div>
+                            <span class="ml-auto bg-orange-500/20 border border-orange-500/30 px-4 py-2 rounded-full text-sm font-semibold text-orange-400">DESEMPATE</span>
+                        </div>
+                        
+                        <h4 class="text-3xl md:text-4xl font-display text-red-400 font-bold mb-6">OLAF ZAMORA</h4>
+                        
+                        <div class="bg-red-500/10 border border-red-500/20 rounded-xl p-6 mb-6">
+                            <h5 class="text-sm uppercase tracking-wider text-red-400/70 mb-3">⚠️ PREMIO DOBLE (Mediador + Rajado)</h5>
+                            <p class="text-white/80"><strong class="text-white">Gorka</strong> es "el difícil". <strong class="text-white">Sein</strong> cancela por enfermedad. Pero Olaf gana por <span class="text-red-400 font-semibold">peso histórico</span>: el grupo le ha hecho intervenciones formales.</p>
+                        </div>
+                        
+                        <p class="text-white/70 mb-6">
+                            Sus excusas son tan variadas (trabajo, perro, jeva, dinero) y su capacidad para indignarse cuando le pillan es tan alta, que el trofeo debe llevar su nombre: <em>"Trofeo Olaf Zamora"</em>.
+                        </p>
+                        
+                        <div class="quote text-white/60 bg-red-500/5 border-red-500 p-4 rounded-r-xl">
+                            <p>"Yo llevo 10 años aguantando vuestra mierda"</p>
+                            <span class="text-xs text-white/40 mt-2 block">— Dicho mientras se raja de un plan. La dualidad humana.</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Award 8: El Chapas -->
+            <article class="award-card glass rounded-3xl overflow-hidden mb-12 reveal-right border-l-4 border-red-500">
+                <div class="grid md:grid-cols-2 gap-0">
+                    <div class="p-8 md:p-12 flex flex-col justify-center order-2 md:order-1">
+                        <div class="flex items-center gap-4 mb-6">
+                            <span class="text-4xl">8️⃣</span>
+                            <div>
+                                <span class="text-sm text-red-400/70 uppercase tracking-wider">Antiaward</span>
+                                <h3 class="font-display text-2xl md:text-3xl font-bold">🗣️ EL CHAPAS</h3>
+                            </div>
+                            <span class="ml-auto bg-red-500/20 border border-red-500/30 px-4 py-2 rounded-full text-sm font-semibold text-red-400">4/5 votos</span>
+                        </div>
+                        
+                        <h4 class="text-3xl md:text-4xl font-display text-red-400 font-bold mb-6">SEIN</h4>
+                        
+                        <div class="bg-red-500/10 border border-red-500/20 rounded-xl p-6 mb-6">
+                            <h5 class="text-sm uppercase tracking-wider text-red-400/70 mb-3">📊 Los números no mienten</h5>
+                            <div class="grid grid-cols-3 gap-4 mt-4">
+                                <div class="text-center">
+                                    <span class="text-3xl font-bold text-red-400">6,142</span>
+                                    <p class="text-xs text-white/50">mensajes</p>
+                                </div>
+                                <div class="text-center">
+                                    <span class="text-3xl font-bold text-red-400">58</span>
+                                    <p class="text-xs text-white/50">audios</p>
+                                </div>
+                                <div class="text-center">
+                                    <span class="text-3xl font-bold text-red-400">551</span>
+                                    <p class="text-xs text-white/50">imágenes</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <p class="text-white/70 mb-6">
+                            Cadena perpetua. No es solo que hable mucho, es que habla solo. Convierte el chat en su diario personal, podcast y álbum de fotos. No chatea: <span class="text-red-400 font-semibold">TRANSMITE EN DIRECTO</span>.
+                        </p>
+                        
+                        <div class="quote text-white/60 bg-red-500/5 border-red-500 p-4 rounded-r-xl">
+                            <p>Bloques de 8-10 mensajes seguidos + "audio omitido" x58</p>
+                            <span class="text-xs text-white/40 mt-2 block">— Récord histórico imbatible.</span>
+                        </div>
+                    </div>
+                    <div class="image-frame aspect-square md:aspect-auto order-1 md:order-2">
+                        <img src="EL_CHAPAS_-_Sein.png" alt="Sein - El Chapas" class="award-image w-full h-full object-cover">
+                    </div>
+                </div>
+            </article>
+
+            <!-- Award 9: El Fantasma -->
+            <article class="award-card glass rounded-3xl overflow-hidden mb-12 reveal-left border-l-4 border-red-500">
+                <div class="grid md:grid-cols-2 gap-0">
+                    <div class="image-frame aspect-square md:aspect-auto">
+                        <img src="EL_FANTASMA__VENDEHUMOS__-_Igor_Lopez.png" alt="Igor Lopez - El Fantasma" class="award-image w-full h-full object-cover">
+                    </div>
+                    <div class="p-8 md:p-12 flex flex-col justify-center">
+                        <div class="flex items-center gap-4 mb-6">
+                            <span class="text-4xl">9️⃣</span>
+                            <div>
+                                <span class="text-sm text-red-400/70 uppercase tracking-wider">Antiaward</span>
+                                <h3 class="font-display text-2xl md:text-3xl font-bold">💨 EL FANTASMA</h3>
+                            </div>
+                            <span class="ml-auto bg-red-500/20 border border-red-500/30 px-4 py-2 rounded-full text-sm font-semibold text-red-400">4/5 votos</span>
+                        </div>
+                        
+                        <h4 class="text-3xl md:text-4xl font-display text-red-400 font-bold mb-6">IGOR LOPEZ</h4>
+                        
+                        <div class="bg-red-500/10 border border-red-500/20 rounded-xl p-6 mb-6">
+                            <h5 class="text-sm uppercase tracking-wider text-red-400/70 mb-3">⚖️ Veredicto: El Elon Musk de Hacendado</h5>
+                            <p class="text-white/80"><strong class="text-white">Sein</strong> presume de lo que hace. <strong class="text-white">Igor</strong> presume de lo que <span class="text-red-400 font-semibold">nunca haréis</span>. Visionario sin ejecución.</p>
+                        </div>
+                        
+                        <p class="text-white/70 mb-6">
+                            Vive en una realidad paralela donde viajáis a Tailandia a hacer Muay Thai y coméis marisco en Formentera cada fin de semana. Nunca miente, pero nunca remata. Es el visionario que nunca compra el billete.
+                        </p>
+                        
+                        <div class="quote text-white/60 bg-red-500/5 border-red-500 p-4 rounded-r-xl">
+                            <p>"Vas a Tailandia pagas poco y aprendes Muay Thai"</p>
+                            <span class="text-xs text-white/40 mt-2 block">— Spoiler: Fueron al bar de siempre.</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Award 10: El Aguafiestas -->
+            <article class="award-card glass rounded-3xl overflow-hidden mb-12 reveal-right border-l-4 border-red-500">
+                <div class="grid md:grid-cols-2 gap-0">
+                    <div class="p-8 md:p-12 flex flex-col justify-center order-2 md:order-1">
+                        <div class="flex items-center gap-4 mb-6">
+                            <span class="text-4xl">🔟</span>
+                            <div>
+                                <span class="text-sm text-red-400/70 uppercase tracking-wider">Antiaward</span>
+                                <h3 class="font-display text-2xl md:text-3xl font-bold">☔ EL AGUAFIESTAS</h3>
+                            </div>
+                            <span class="ml-auto bg-red-500/20 border border-red-500/30 px-4 py-2 rounded-full text-sm font-semibold text-red-400">3/5 votos</span>
+                        </div>
+                        
+                        <h4 class="text-3xl md:text-4xl font-display text-red-400 font-bold mb-6">XABIER MURUA</h4>
+                        
+                        <div class="bg-red-500/10 border border-red-500/20 rounded-xl p-6 mb-6">
+                            <h5 class="text-sm uppercase tracking-wider text-red-400/70 mb-3">⚖️ El Grinch del Hype</h5>
+                            <p class="text-white/80"><strong class="text-white">Olaf</strong> se queja por vicio. <strong class="text-white">Alex</strong> es realista. Pero Murua tiene el talento de <span class="text-red-400 font-semibold">pinchar globos sin querer hacerlo</span>.</p>
+                        </div>
+                        
+                        <p class="text-white/70 mb-6">
+                            Su especialidad: "decepción preventiva profesional". Decirle a alguien que va a tener diarrea justo cuando está disfrutando de una merluza es de ser un Aguafiestas Pro. Es la nube negra sobre vuestro picnic.
+                        </p>
+                        
+                        <div class="quote text-white/60 bg-red-500/5 border-red-500 p-4 rounded-r-xl">
+                            <p>"con lo rico que está la merluza en prim 12. luego tendréis cagalera a la noche"</p>
+                            <span class="text-xs text-white/40 mt-2 block">— La nube negra certificada.</span>
+                        </div>
+                    </div>
+                    <div class="image-frame aspect-square md:aspect-auto order-1 md:order-2">
+                        <img src="EL_AGUAFIESTAS_-_Xabier_Murua.png" alt="Xabier Murua - El Aguafiestas" class="award-image w-full h-full object-cover">
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Premios Secundarios -->
+    <section id="secundarios" class="py-20 px-6 bg-gradient-to-b from-transparent to-purple-900/20">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-5xl mb-4 block reveal">🎭</span>
+                <h2 class="font-display text-4xl md:text-6xl font-bold mb-4 reveal">
+                    <span class="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">MENCIONES ESPECIALES</span>
+                </h2>
+                <p class="text-white/50 text-xl reveal">Los detalles que no podíamos ignorar</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Secundario 1 -->
+                <div class="glass rounded-2xl p-6 reveal hover:scale-105 transition-transform">
+                    <span class="text-3xl mb-3 block">🏥</span>
+                    <h4 class="font-display text-xl font-bold mb-2">El Malito Crónico</h4>
+                    <p class="text-purple-400 font-semibold mb-3">David & Sein</p>
+                    <p class="text-white/60 text-sm">Compartido entre David ("malito") y Sein ("he potado"). El grupo necesita seguro médico.</p>
+                </div>
+
+                <!-- Secundario 2 -->
+                <div class="glass rounded-2xl p-6 reveal hover:scale-105 transition-transform" style="transition-delay: 0.1s;">
+                    <span class="text-3xl mb-3 block">📸</span>
+                    <h4 class="font-display text-xl font-bold mb-2">El Fotógrafo Compulsivo</h4>
+                    <p class="text-purple-400 font-semibold mb-3">Sein</p>
+                    <p class="text-white/60 text-sm">551 imágenes compartidas. ¿Documenta su vida o hace un documental?</p>
+                </div>
+
+                <!-- Secundario 3 -->
+                <div class="glass rounded-2xl p-6 reveal hover:scale-105 transition-transform" style="transition-delay: 0.2s;">
+                    <span class="text-3xl mb-3 block">🎤</span>
+                    <h4 class="font-display text-xl font-bold mb-2">El Rey del Audio</h4>
+                    <p class="text-purple-400 font-semibold mb-3">Sein</p>
+                    <p class="text-white/60 text-sm">58 audios. Prefiere el formato podcast. "Audio omitido" es su firma.</p>
+                </div>
+
+                <!-- Secundario 4 -->
+                <div class="glass rounded-2xl p-6 reveal hover:scale-105 transition-transform" style="transition-delay: 0.3s;">
+                    <span class="text-3xl mb-3 block">🤖</span>
+                    <h4 class="font-display text-xl font-bold mb-2">El Programador de ChatGPT</h4>
+                    <p class="text-purple-400 font-semibold mb-3">Sein</p>
+                    <p class="text-white/60 text-sm">"la he hecho yo" → "tu o chatgpt" → "Ambos jeje". Al menos es honesto.</p>
+                </div>
+
+                <!-- Secundario 5 -->
+                <div class="glass rounded-2xl p-6 reveal hover:scale-105 transition-transform" style="transition-delay: 0.4s;">
+                    <span class="text-3xl mb-3 block">🇦🇹</span>
+                    <h4 class="font-display text-xl font-bold mb-2">El Más Austrohúngaro</h4>
+                    <p class="text-purple-400 font-semibold mb-3">Omar</p>
+                    <p class="text-white/60 text-sm">"Soy austrohúngaro" — Nadie sabe qué significa. Omar desapareció. El misterio continúa.</p>
+                </div>
+
+                <!-- Secundario 6 -->
+                <div class="glass rounded-2xl p-6 reveal hover:scale-105 transition-transform" style="transition-delay: 0.5s;">
+                    <span class="text-3xl mb-3 block">🚪</span>
+                    <h4 class="font-display text-xl font-bold mb-2">El Schrödinger del Grupo</h4>
+                    <p class="text-purple-400 font-semibold mb-3">Kevin</p>
+                    <p class="text-white/60 text-sm">10 mensajes en 7 meses. Salió, fue eliminado, fue re-añadido. ¿Está dentro o fuera?</p>
+                </div>
+
+                <!-- Secundario 7 -->
+                <div class="glass rounded-2xl p-6 reveal hover:scale-105 transition-transform" style="transition-delay: 0.6s;">
+                    <span class="text-3xl mb-3 block">📅</span>
+                    <h4 class="font-display text-xl font-bold mb-2">El Ministro de Agenda</h4>
+                    <p class="text-purple-400 font-semibold mb-3">Gorka</p>
+                    <p class="text-white/60 text-sm">"Tengo una reunión que no sé a qué hora será" — El hombre más ocupado de Euskadi.</p>
+                </div>
+
+                <!-- Secundario 8 -->
+                <div class="glass rounded-2xl p-6 reveal hover:scale-105 transition-transform" style="transition-delay: 0.7s;">
+                    <span class="text-3xl mb-3 block">🐙</span>
+                    <h4 class="font-display text-xl font-bold mb-2">El Pulpo Que Nunca Llegó</h4>
+                    <p class="text-purple-400 font-semibold mb-3">Igor</p>
+                    <p class="text-white/60 text-sm">"pa comer pulpo en la soci" — El pulpo sigue esperando. Spoiler: nunca irán.</p>
+                </div>
+
+                <!-- Secundario 9 -->
+                <div class="glass rounded-2xl p-6 reveal hover:scale-105 transition-transform glow-gold" style="transition-delay: 0.8s;">
+                    <span class="text-3xl mb-3 block">💋</span>
+                    <h4 class="font-display text-xl font-bold gold-text">LA FRASE DEL AÑO</h4>
+                    <p class="text-yellow-400 font-semibold mb-3">Jon Aranzabal</p>
+                    <p class="text-white/80 text-sm italic">"yo creo que debemos besarnos... con lengua"</p>
+                    <p class="text-white/40 text-xs mt-2">Candidata a tatuaje colectivo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Balance Final -->
+    <section class="py-20 px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+                <span class="text-5xl mb-4 block reveal">📊</span>
+                <h2 class="font-display text-4xl md:text-5xl font-bold gold-text mb-4 reveal">BALANCE FINAL</h2>
+            </div>
+
+            <div class="glass rounded-3xl overflow-hidden reveal">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead class="bg-gradient-to-r from-yellow-600 to-amber-600 text-black">
+                            <tr>
+                                <th class="px-6 py-4 text-left font-bold">Persona</th>
+                                <th class="px-4 py-4 text-center font-bold">✨</th>
+                                <th class="px-4 py-4 text-center font-bold">💀</th>
+                                <th class="px-4 py-4 text-center font-bold">Balance</th>
+                                <th class="px-6 py-4 text-left font-bold">Veredicto</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-white/10">
+                            <tr class="hover:bg-white/5">
+                                <td class="px-6 py-4 font-semibold">David Hernandez</td>
+                                <td class="px-4 py-4 text-center">1</td>
+                                <td class="px-4 py-4 text-center">0</td>
+                                <td class="px-4 py-4 text-center text-green-400 font-bold">+1</td>
+                                <td class="px-6 py-4 text-yellow-400">⭐ MVP del grupo</td>
+                            </tr>
+                            <tr class="hover:bg-white/5">
+                                <td class="px-6 py-4 font-semibold">Jon Aranzabal</td>
+                                <td class="px-4 py-4 text-center">1 👑</td>
+                                <td class="px-4 py-4 text-center">0</td>
+                                <td class="px-4 py-4 text-center text-green-400 font-bold">+1</td>
+                                <td class="px-6 py-4 text-yellow-400">👑 Unanimidad histórica</td>
+                            </tr>
+                            <tr class="hover:bg-white/5">
+                                <td class="px-6 py-4 font-semibold">Mikel Pintos</td>
+                                <td class="px-4 py-4 text-center">1</td>
+                                <td class="px-4 py-4 text-center">0</td>
+                                <td class="px-4 py-4 text-center text-green-400 font-bold">+1</td>
+                                <td class="px-6 py-4">🎖️ El soldado perfecto</td>
+                            </tr>
+                            <tr class="hover:bg-white/5">
+                                <td class="px-6 py-4 font-semibold">Sein</td>
+                                <td class="px-4 py-4 text-center">1</td>
+                                <td class="px-4 py-4 text-center">1</td>
+                                <td class="px-4 py-4 text-center text-white/50 font-bold">0</td>
+                                <td class="px-6 py-4">🎭 El protagonista agotador</td>
+                            </tr>
+                            <tr class="hover:bg-white/5">
+                                <td class="px-6 py-4 font-semibold">Olaf Zamora</td>
+                                <td class="px-4 py-4 text-center">1</td>
+                                <td class="px-4 py-4 text-center">1</td>
+                                <td class="px-4 py-4 text-center text-white/50 font-bold">0</td>
+                                <td class="px-6 py-4">⚖️ Dr. Jekyll y Mr. Hyde</td>
+                            </tr>
+                            <tr class="hover:bg-white/5">
+                                <td class="px-6 py-4 font-semibold">Xabier Murua</td>
+                                <td class="px-4 py-4 text-center">0</td>
+                                <td class="px-4 py-4 text-center">1</td>
+                                <td class="px-4 py-4 text-center text-red-400 font-bold">-1</td>
+                                <td class="px-6 py-4">🌧️ La nube negra</td>
+                            </tr>
+                            <tr class="hover:bg-white/5">
+                                <td class="px-6 py-4 font-semibold">Igor Lopez</td>
+                                <td class="px-4 py-4 text-center">0</td>
+                                <td class="px-4 py-4 text-center">1</td>
+                                <td class="px-4 py-4 text-center text-red-400 font-bold">-1</td>
+                                <td class="px-6 py-4">💨 El visionario sin billete</td>
+                            </tr>
+                            <tr class="hover:bg-white/5">
+                                <td class="px-6 py-4 font-semibold">Omar Urrizola</td>
+                                <td class="px-4 py-4 text-center">0</td>
+                                <td class="px-4 py-4 text-center">1</td>
+                                <td class="px-4 py-4 text-center text-red-400 font-bold">-1</td>
+                                <td class="px-6 py-4">👻 El cameo humano</td>
+                            </tr>
+                            <tr class="hover:bg-white/5">
+                                <td class="px-6 py-4 font-semibold">Gorka Andres</td>
+                                <td class="px-4 py-4 text-center">0</td>
+                                <td class="px-4 py-4 text-center">0</td>
+                                <td class="px-4 py-4 text-center text-white/50 font-bold">0</td>
+                                <td class="px-6 py-4">🤷 Se libra por los pelos</td>
+                            </tr>
+                            <tr class="hover:bg-white/5">
+                                <td class="px-6 py-4 font-semibold">Kevin</td>
+                                <td class="px-4 py-4 text-center">0</td>
+                                <td class="px-4 py-4 text-center">0</td>
+                                <td class="px-4 py-4 text-center text-white/50 font-bold">0</td>
+                                <td class="px-6 py-4">❓ ¿Sigue en el grupo?</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sentencia Final -->
+    <section id="sentencia" class="py-20 px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="glass-gold rounded-3xl p-8 md:p-12 reveal-scale">
+                <div class="text-center mb-8">
+                    <span class="text-6xl mb-4 block">📜</span>
+                    <h2 class="font-display text-3xl md:text-5xl font-bold gold-text mb-4">SENTENCIA EJECUTIVA</h2>
+                    <p class="text-white/60">Por todo lo expuesto, este Tribunal Supremo de la Gala Reset <strong class="text-white">DECLARA:</strong></p>
+                </div>
+
+                <div class="space-y-4 mb-8">
+                    <div class="flex items-start gap-4 glass rounded-xl p-4">
+                        <span class="text-2xl">1️⃣</span>
+                        <p class="text-white/80">Los premios arriba mencionados son <strong class="gold-text">FIRMES E INAPELABLES</strong>.</p>
+                    </div>
+                    <div class="flex items-start gap-4 glass rounded-xl p-4">
+                        <span class="text-2xl">2️⃣</span>
+                        <p class="text-white/80">Los ganadores de premios negativos (<strong class="text-red-400">Omar, Olaf, Sein, Igor, Murua</strong>) <strong class="gold-text">PAGARÁN la primera ronda</strong> en la próxima quedada.</p>
+                    </div>
+                    <div class="flex items-start gap-4 glass rounded-xl p-4">
+                        <span class="text-2xl">3️⃣</span>
+                        <p class="text-white/80"><strong class="text-white">Kevin</strong> deberá presentar certificado de vida antes del 31 de diciembre.</p>
+                    </div>
+                    <div class="flex items-start gap-4 glass rounded-xl p-4">
+                        <span class="text-2xl">4️⃣</span>
+                        <p class="text-white/80"><strong class="text-white">Gorka</strong> deberá confirmar asistencia sin usar la palabra <span class="text-red-400">"pero"</span>.</p>
+                    </div>
+                    <div class="flex items-start gap-4 glass rounded-xl p-4">
+                        <span class="text-2xl">5️⃣</span>
+                        <p class="text-white/80"><strong class="text-white">Sein</strong> tiene PROHIBIDO enviar más de 5 mensajes seguidos <span class="text-white/50">(se sabe que no cumplirá)</span>.</p>
+                    </div>
+                    <div class="flex items-start gap-4 glass rounded-xl p-4">
+                        <span class="text-2xl">6️⃣</span>
+                        <p class="text-white/80"><strong class="text-white">Igor</strong> tiene prohibido proponer planes fuera de un radio de 50km.</p>
+                    </div>
+                    <div class="flex items-start gap-4 glass rounded-xl p-4">
+                        <span class="text-2xl">7️⃣</span>
+                        <p class="text-white/80"><strong class="text-white">Murua</strong> deberá guardar silencio durante 10 minutos cuando alguien esté ilusionado.</p>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <p class="text-3xl md:text-4xl font-display font-bold gold-text mb-6">
+                        🔨 MARTILLO GOLPEADO. CASO CERRADO. 🔨
+                    </p>
+                    <div class="border-t border-white/20 pt-6 mt-6">
+                        <p class="text-white/50 italic">Firmado: El Tribunal Unificado de los 5 Análisis</p>
+                        <p class="text-white/50 italic">Gala Reset 2025 - Sentencia Definitiva</p>
+                        <p class="text-white/30 text-sm mt-4">📅 Diciembre 2025</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Note -->
+            <div class="glass rounded-2xl p-6 mt-8 reveal">
+                <p class="text-white/60 text-center">
+                    <strong class="text-white">📋 NOTA FINAL:</strong> Este documento puede ser leído en voz alta en la próxima cena.<br>
+                    Se recomienda tener a mano: 🧻 pañuelos para Olaf, 🎧 tapones para cuando Sein se defienda,<br>
+                    🍺 cervezas para brindar por Jon, 📱 el móvil para ver si Kevin lee el mensaje.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 text-center border-t border-white/10">
+        <p class="text-white/30 text-sm">
+            "Este grupo se sostiene sobre un equilibrio precario y milagroso. Y así queremos que siga."
+        </p>
+        <p class="text-white/20 text-xs mt-4">GALA RESET 2025 © Tribunal Supremo del WhatsApp</p>
+    </footer>
+
+    <script>
+        // Scroll Progress Bar
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progressBar').style.width = scrolled + '%';
+            
+            // Parallax for hero
+            document.documentElement.style.setProperty('--scroll', winScroll);
+            
+            // Show/hide navbar
+            const navbar = document.getElementById('navbar');
+            if (winScroll > 100) {
+                navbar.classList.remove('opacity-0', '-translate-y-full');
+            } else {
+                navbar.classList.add('opacity-0', '-translate-y-full');
+            }
+        });
+
+        // Reveal on scroll
+        const reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+        
+        const revealOnScroll = () => {
+            reveals.forEach(el => {
+                const windowHeight = window.innerHeight;
+                const elementTop = el.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    el.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+
+        // Counter animation
+        const counters = document.querySelectorAll('.counter');
+        const animateCounters = () => {
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const duration = 2000;
+                const step = target / (duration / 16);
+                let current = 0;
+                
+                const updateCounter = () => {
+                    current += step;
+                    if (current < target) {
+                        counter.textContent = Math.floor(current).toLocaleString();
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.textContent = target.toLocaleString();
+                    }
+                };
+                
+                updateCounter();
+            });
+        };
+
+        // Trigger counter animation when hero is visible
+        const heroObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    heroObserver.disconnect();
+                }
+            });
+        }, { threshold: 0.5 });
+
+        heroObserver.observe(document.querySelector('header'));
+    </script>
+</body>
+</html>
