@@ -462,40 +462,34 @@ body {
     z-index: 1;
 }
 
-/* Badge de próximamente */
-.coming-soon-badge {
+/* Sección Próximamente (página completa) */
+.coming-soon-section {
     display: none;
 }
 
-.preview-mode .coming-soon-badge {
+.preview-mode .coming-soon-section {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    padding: 2rem 3rem;
-    background: rgba(212, 175, 55, 0.15);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 2px solid rgba(212, 175, 55, 0.5);
-    border-radius: 1.5rem;
-    animation: pulseGold 2s ease-in-out infinite;
+}
+
+.coming-soon-page {
+    animation: pulseGold 3s ease-in-out infinite;
 }
 
 @keyframes pulseGold {
 
     0%,
     100% {
-        box-shadow: 0 0 20px rgba(212, 175, 55, 0.3),
-            0 0 40px rgba(212, 175, 55, 0.1);
+        box-shadow: 0 0 30px rgba(212, 175, 55, 0.3),
+            0 0 60px rgba(212, 175, 55, 0.1);
     }
 
     50% {
-        box-shadow: 0 0 30px rgba(212, 175, 55, 0.5),
-            0 0 60px rgba(212, 175, 55, 0.2);
+        box-shadow: 0 0 50px rgba(212, 175, 55, 0.5),
+            0 0 100px rgba(212, 175, 55, 0.2);
     }
 }
 
-.coming-soon-badge .coming-soon-text {
+.coming-soon-text {
     font-family: 'Playfair Display', serif;
     font-size: 2.5rem;
     font-weight: 700;
@@ -507,10 +501,15 @@ body {
     letter-spacing: 0.1em;
 }
 
-.coming-soon-badge .coming-soon-subtitle {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 1rem;
-    text-align: center;
+@media (min-width: 768px) {
+    .coming-soon-text {
+        font-size: 3.5rem;
+    }
+}
+
+.coming-soon-message {
+    font-size: 1.1rem;
+    line-height: 1.8;
 }
 
 /* Mensaje flotante de spoiler */
