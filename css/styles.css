@@ -146,6 +146,14 @@ body {
         object-position: center 20%;
         /* Bajar un poco para centrar las caras */
     }
+
+    /* Ajuste específico para El Fiel - mostrar el móvil con "IN" */
+    #img-el-fiel {
+        object-fit: contain;
+        object-position: center center;
+        background: linear-gradient(135deg, #1a1a2e 0%, #0a0a0f 100%);
+        padding: 1rem;
+    }
 }
 
 /* Floating particles */
