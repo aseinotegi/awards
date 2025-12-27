@@ -5,7 +5,11 @@
     --card-bg: rgba(20, 20, 35, 0.8);
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 html {
     scroll-behavior: smooth;
@@ -18,7 +22,9 @@ body {
     overflow-x: hidden;
 }
 
-.font-display { font-family: 'Playfair Display', serif; }
+.font-display {
+    font-family: 'Playfair Display', serif;
+}
 
 /* Animated gradient background */
 .gradient-bg {
@@ -28,9 +34,17 @@ body {
 }
 
 @keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 /* Glassmorphism */
@@ -131,8 +145,17 @@ body {
 }
 
 @keyframes float {
-    0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.3; }
-    50% { transform: translateY(-100px) rotate(180deg); opacity: 0.8; }
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.3;
+    }
+
+    50% {
+        transform: translateY(-100px) rotate(180deg);
+        opacity: 0.8;
+    }
 }
 
 /* Glow effects */
@@ -211,15 +234,28 @@ body {
 }
 
 @keyframes pulse {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); }
-    50% { box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); }
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4);
+    }
+
+    50% {
+        box-shadow: 0 0 0 10px rgba(34, 197, 94, 0);
+    }
 }
 
 /* Scrollbar */
-::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: var(--dark-bg); }
-::-webkit-scrollbar-thumb { 
-    background: linear-gradient(var(--gold), var(--gold-light)); 
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--dark-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(var(--gold), var(--gold-light));
     border-radius: 4px;
 }
 
@@ -247,13 +283,11 @@ body {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-        to bottom,
-        rgba(10, 10, 15, 0.3) 0%,
-        rgba(10, 10, 15, 0.5) 50%,
-        rgba(10, 10, 15, 0.95) 85%,
-        rgba(10, 10, 15, 1) 100%
-    );
+    background: linear-gradient(to bottom,
+            rgba(10, 10, 15, 0.3) 0%,
+            rgba(10, 10, 15, 0.5) 50%,
+            rgba(10, 10, 15, 0.95) 85%,
+            rgba(10, 10, 15, 1) 100%);
 }
 
 /* Hero section with image */
@@ -272,29 +306,210 @@ body {
 }
 
 @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-    40% { transform: translateY(-20px); }
-    60% { transform: translateY(-10px); }
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-20px);
+    }
+
+    60% {
+        transform: translateY(-10px);
+    }
 }
 
 /* Shimmer effect for gold elements */
 @keyframes shimmer {
-    0% { background-position: -200% 0; }
-    100% { background-position: 200% 0; }
+    0% {
+        background-position: -200% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
 }
 
 .shimmer {
-    background: linear-gradient(
-        90deg,
-        var(--gold) 0%,
-        var(--gold-light) 25%,
-        var(--gold) 50%,
-        var(--gold-light) 75%,
-        var(--gold) 100%
-    );
+    background: linear-gradient(90deg,
+            var(--gold) 0%,
+            var(--gold-light) 25%,
+            var(--gold) 50%,
+            var(--gold-light) 75%,
+            var(--gold) 100%);
     background-size: 200% 100%;
     animation: shimmer 3s linear infinite;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+}
+
+/* ================================
+   MODO PREVIEW / TEASER
+   Añade clase "preview-mode" al body
+   ================================ */
+
+/* Difuminar imágenes de ganadores */
+.preview-mode .award-image,
+.preview-mode .image-frame {
+    filter: blur(20px);
+    -webkit-filter: blur(20px);
+}
+
+/* Difuminar nombres de ganadores (los h4 con nombre) */
+.preview-mode .award-card h4,
+.preview-mode #secundarios .text-purple-400,
+.preview-mode #secundarios .text-yellow-400 {
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+    user-select: none;
+}
+
+/* Difuminar veredictos, descripciones y citas */
+.preview-mode .award-card .glass.rounded-xl,
+.preview-mode .award-card>div>div>p.text-white\/70,
+.preview-mode .award-card>div>div>p.text-white\/80,
+.preview-mode .quote,
+.preview-mode .bg-red-500\/10,
+.preview-mode .bg-gradient-to-r.from-yellow-500\/20 {
+    filter: blur(6px);
+    -webkit-filter: blur(6px);
+    user-select: none;
+}
+
+/* Difuminar descripción en menciones especiales */
+.preview-mode #secundarios .text-white\/60,
+.preview-mode #secundarios .text-white\/80,
+.preview-mode #secundarios .text-white\/40 {
+    filter: blur(6px);
+    -webkit-filter: blur(6px);
+    user-select: none;
+}
+
+/* Difuminar estadísticas numéricas en la tarjeta "El Chapas" */
+.preview-mode .grid-cols-3 .text-3xl {
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+}
+
+/* Difuminar votos */
+.preview-mode .glass-gold.px-4.py-2,
+.preview-mode .bg-red-500\/20.border,
+.preview-mode .bg-orange-500\/20 {
+    filter: blur(6px);
+    -webkit-filter: blur(6px);
+}
+
+/* Difuminar tabla de balance completa */
+.preview-mode #sentencia,
+.preview-mode table,
+.preview-mode tbody {
+    filter: blur(10px);
+    -webkit-filter: blur(10px);
+    user-select: none;
+}
+
+/* Ocultar el botón "Descubrir Ganadores" en modo preview */
+.preview-mode .hero-content a[href="#positivos"] {
+    display: none;
+}
+
+/* Hero overlay "Próximamente" */
+.preview-mode .hero-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 10, 15, 0.7);
+    z-index: 1;
+}
+
+/* Badge de próximamente */
+.coming-soon-badge {
+    display: none;
+}
+
+.preview-mode .coming-soon-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem 3rem;
+    background: rgba(212, 175, 55, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 2px solid rgba(212, 175, 55, 0.5);
+    border-radius: 1.5rem;
+    animation: pulseGold 2s ease-in-out infinite;
+}
+
+@keyframes pulseGold {
+
+    0%,
+    100% {
+        box-shadow: 0 0 20px rgba(212, 175, 55, 0.3),
+            0 0 40px rgba(212, 175, 55, 0.1);
+    }
+
+    50% {
+        box-shadow: 0 0 30px rgba(212, 175, 55, 0.5),
+            0 0 60px rgba(212, 175, 55, 0.2);
+    }
+}
+
+.coming-soon-badge .coming-soon-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #d4af37 0%, #f4d03f 50%, #d4af37 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.coming-soon-badge .coming-soon-subtitle {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+    text-align: center;
+}
+
+/* Mensaje flotante de spoiler */
+.spoiler-warning {
+    display: none;
+}
+
+.preview-mode .spoiler-warning {
+    display: block;
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(212, 175, 55, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    padding: 1rem 2rem;
+    border-radius: 9999px;
+    color: #f4d03f;
+    font-weight: 600;
+    z-index: 1000;
+    animation: floatUpDown 3s ease-in-out infinite;
+}
+
+@keyframes floatUpDown {
+
+    0%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    50% {
+        transform: translateX(-50%) translateY(-10px);
+    }
 }

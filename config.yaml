@@ -1,0 +1,15 @@
+# ================================
+# CONFIGURACIÓN GALA RESET 2025
+# ================================
+
+# Modo Preview (Teaser)
+# true = Los ganadores están ocultos/difuminados
+# false = Se muestran todos los ganadores
+preview_mode: true
+
+# Texto del badge "Próximamente" 
+coming_soon_text: "Próximamente"
+coming_soon_subtitle: "Los ganadores serán revelados en la Gala"
+
+# Mensaje flotante de advertencia
+spoiler_warning: "🔒 Vista previa sin spoilers — Los ganadores serán revelados en la Gala"
