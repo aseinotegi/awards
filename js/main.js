@@ -4,6 +4,13 @@
 async function loadConfig() {
     try {
         const response = await fetch('config.yaml');
+
+        // Verificar que la respuesta sea exitosa
+        if (!response.ok) {
+            console.warn('config.yaml no encontrado, usando modo preview por defecto');
+            return { preview_mode: true }; // Por defecto ocultar ganadores
+        }
+
         const yamlText = await response.text();
 
         // Parsear YAML simple (solo soporta key: value)
@@ -29,10 +36,11 @@ async function loadConfig() {
             }
         });
 
+        console.log('Configuración cargada:', config);
         return config;
     } catch (error) {
         console.error('Error cargando config.yaml:', error);
-        return { preview_mode: false }; // Por defecto mostrar todo
+        return { preview_mode: true }; // Por defecto ocultar ganadores si hay error
     }
 }
 
