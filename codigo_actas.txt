@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🏛️ GALA RESET 2025</title>
+    <title>🏛️ GALA ESTE FINDE NADA 2025</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -261,7 +261,7 @@
     <!-- Navigation -->
     <nav class="fixed top-0 left-0 right-0 z-50 glass py-4 px-6 opacity-0 -translate-y-full transition-all duration-500" id="navbar">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <span class="font-display text-xl gold-text font-bold">GALA RESET 2025</span>
+            <span class="font-display text-xl gold-text font-bold">GALA ESTE FINDE NADA 2025</span>
             <div class="hidden md:flex gap-6 text-sm">
                 <a href="#positivos" class="nav-item">🏆 Positivos</a>
                 <a href="#negativos" class="nav-item">💀 Antiawards</a>
@@ -280,7 +280,7 @@
                 <span class="text-6xl md:text-8xl mb-4 block">🏛️</span>
             </div>
             <h1 class="font-display text-5xl md:text-8xl font-black mb-4 reveal">
-                <span class="gold-text">GALA RESET</span>
+                <span class="gold-text">GALA ESTE FINDE NADA</span>
             </h1>
             <h2 class="font-display text-3xl md:text-5xl text-white/80 mb-8 reveal" style="transition-delay: 0.2s;">
                 2025
@@ -913,7 +913,7 @@
                 <div class="text-center mb-8">
                     <span class="text-6xl mb-4 block">📜</span>
                     <h2 class="font-display text-3xl md:text-5xl font-bold gold-text mb-4">SENTENCIA EJECUTIVA</h2>
-                    <p class="text-white/60">Por todo lo expuesto, este Tribunal Supremo de la Gala Reset <strong class="text-white">DECLARA:</strong></p>
+                    <p class="text-white/60">Por todo lo expuesto, este Tribunal Supremo de la GALA ESTE FINDE NADA <strong class="text-white">DECLARA:</strong></p>
                 </div>
 
                 <div class="space-y-4 mb-8">
@@ -953,7 +953,7 @@
                     </p>
                     <div class="border-t border-white/20 pt-6 mt-6">
                         <p class="text-white/50 italic">Firmado: El Tribunal Unificado de los 5 Análisis</p>
-                        <p class="text-white/50 italic">Gala Reset 2025 - Sentencia Definitiva</p>
+                        <p class="text-white/50 italic">GALA ESTE FINDE NADA 2025 - Sentencia Definitiva</p>
                         <p class="text-white/30 text-sm mt-4">📅 Diciembre 2025</p>
                     </div>
                 </div>
@@ -975,7 +975,7 @@
         <p class="text-white/30 text-sm">
             "Este grupo se sostiene sobre un equilibrio precario y milagroso. Y así queremos que siga."
         </p>
-        <p class="text-white/20 text-xs mt-4">GALA RESET 2025 © Tribunal Supremo del WhatsApp</p>
+        <p class="text-white/20 text-xs mt-4">GALA ESTE FINDE NADA 2025 © Tribunal Supremo del WhatsApp</p>
     </footer>
 
     <script>

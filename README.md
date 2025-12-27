@@ -1,6 +1,6 @@
-# 🏛️ GALA RESET 2025 - The Awards
+# 🏛️ GALA ESTE FINDE NADA 2025 - The Awards
 
-Página web de premios del grupo de WhatsApp - Gala Reset 2025.
+Página web de premios del grupo de WhatsApp - GALA ESTE FINDE NADA 2025.
 
 ## 🚀 Despliegue en GitHub Pages
 
