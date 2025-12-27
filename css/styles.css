@@ -131,6 +131,21 @@ body {
 
 .award-image {
     transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    object-position: center top;
+    /* Mostrar la parte superior de la imagen (caras) */
+}
+
+/* Responsive: Ajustes para móvil */
+@media (max-width: 768px) {
+    .award-card .image-frame {
+        min-height: 350px;
+        /* Altura mínima para ver bien las caras */
+    }
+
+    .award-image {
+        object-position: center 20%;
+        /* Bajar un poco para centrar las caras */
+    }
 }
 
 /* Floating particles */
