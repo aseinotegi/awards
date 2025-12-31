@@ -1,14 +1,31 @@
 // ================================
 // CARGA DE CONFIGURACIÓN YAML
 // ================================
+
+// Configuración inline (se usa cuando no se puede cargar config.yaml, por ejemplo con file://)
+// CAMBIAR AQUÍ EL VALOR DE preview_mode TAMBIÉN SI SE CAMBIA EN config.yaml
+const INLINE_CONFIG = {
+    preview_mode: false, // Cambiar a true para activar modo teaser
+    coming_soon_text: "Próximamente",
+    coming_soon_subtitle: "Los ganadores serán revelados en la Gala",
+    spoiler_warning: "🔒 Vista previa sin spoilers — Los ganadores serán revelados en la Gala"
+};
+
 async function loadConfig() {
     try {
+        // Detectar si estamos en protocolo file:// (local sin servidor)
+        if (window.location.protocol === 'file:') {
+            console.log('Detectado protocolo file://, usando configuración inline');
+            console.log('Configuración cargada (inline):', INLINE_CONFIG);
+            return INLINE_CONFIG;
+        }
+
         const response = await fetch('config.yaml');
 
         // Verificar que la respuesta sea exitosa
         if (!response.ok) {
-            console.warn('config.yaml no encontrado, usando modo preview por defecto');
-            return { preview_mode: true }; // Por defecto ocultar ganadores
+            console.warn('config.yaml no encontrado, usando configuración inline');
+            return INLINE_CONFIG;
         }
 
         const yamlText = await response.text();
@@ -40,7 +57,8 @@ async function loadConfig() {
         return config;
     } catch (error) {
         console.error('Error cargando config.yaml:', error);
-        return { preview_mode: true }; // Por defecto ocultar ganadores si hay error
+        console.log('Usando configuración inline como fallback');
+        return INLINE_CONFIG; // Usar configuración inline si hay error
     }
 }
 
