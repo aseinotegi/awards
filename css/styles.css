@@ -425,6 +425,17 @@ body {
     user-select: auto;
 }
 
+/* EXCEPCIÓN: Agenda del Rey de España visible en modo preview */
+.preview-mode #agenda-rey,
+.preview-mode #agenda-rey .text-white\/60,
+.preview-mode #agenda-rey .text-white\/80,
+.preview-mode #agenda-rey .text-white\/40,
+.preview-mode #agenda-rey .text-purple-400 {
+    filter: none !important;
+    -webkit-filter: none !important;
+    user-select: auto;
+}
+
 /* Difuminar estadísticas numéricas en la tarjeta "El Chapas" */
 .preview-mode .grid-cols-3 .text-3xl {
     filter: blur(8px);
