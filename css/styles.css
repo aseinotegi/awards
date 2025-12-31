@@ -292,6 +292,32 @@ body {
     font-variant-numeric: tabular-nums;
 }
 
+/* Award number badges */
+.award-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    flex-shrink: 0;
+}
+
+.award-number-positive {
+    background: linear-gradient(135deg, #d4af37, #f4d03f, #d4af37);
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+}
+
+.award-number-negative {
+    background: linear-gradient(135deg, #dc2626, #ef4444, #dc2626);
+    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);
+}
+
 /* Hero background image */
 .hero-bg {
     position: absolute;
