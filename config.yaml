@@ -5,7 +5,7 @@
 # Modo Preview (Teaser)
 # true = Los ganadores están ocultos/difuminados
 # false = Se muestran todos los ganadores
-preview_mode: true
+preview_mode: false
 
 # Texto del badge "Próximamente" 
 coming_soon_text: "Próximamente"
