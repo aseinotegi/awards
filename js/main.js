@@ -128,6 +128,72 @@ loadConfig().then(config => {
     if (spoilerWarning && config.spoiler_warning) {
         spoilerWarning.textContent = config.spoiler_warning;
     }
+
+    // ================================
+    // COUNTDOWN EN TIEMPO REAL
+    // ================================
+    const countdownContainer = document.getElementById('countdown-container');
+    const comingSoonSection = document.querySelector('.coming-soon-section');
+    const hoursEl = document.getElementById('countdown-hours');
+    const minutesEl = document.getElementById('countdown-minutes');
+    const secondsEl = document.getElementById('countdown-seconds');
+
+    // Si ya pasó la hora de revelación, ocultar sección de "Próximamente"
+    if (!effectivePreviewMode && comingSoonSection) {
+        comingSoonSection.style.display = 'none';
+        console.log('🎉 Sección "Próximamente" oculta - Los ganadores ya están revelados');
+    }
+
+    // Función para actualizar el countdown
+    function updateCountdown() {
+        const now = new Date();
+        const timeRemaining = REVEAL_DATE - now;
+
+        // Si ya pasó la hora, revelar todo
+        if (timeRemaining <= 0) {
+            // Ocultar sección de próximamente con animación
+            if (comingSoonSection) {
+                comingSoonSection.style.transition = 'opacity 0.5s ease-out';
+                comingSoonSection.style.opacity = '0';
+                setTimeout(() => {
+                    comingSoonSection.style.display = 'none';
+                }, 500);
+            }
+
+            // Quitar el modo preview
+            document.body.classList.remove('preview-mode');
+            console.log('🎉 ¡Countdown terminado! Revelando ganadores...');
+
+            // Recargar la página para mostrar todo correctamente actualizado
+            setTimeout(() => {
+                window.location.reload();
+            }, 1000);
+
+            return; // Detener el countdown
+        }
+
+        // Calcular horas, minutos y segundos
+        const hours = Math.floor(timeRemaining / (1000 * 60 * 60));
+        const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+        // Actualizar el DOM
+        if (hoursEl) hoursEl.textContent = String(hours).padStart(2, '0');
+        if (minutesEl) minutesEl.textContent = String(minutes).padStart(2, '0');
+        if (secondsEl) secondsEl.textContent = String(seconds).padStart(2, '0');
+    }
+
+    // Si estamos en preview mode, iniciar el countdown
+    if (effectivePreviewMode && countdownContainer) {
+        // Actualizar inmediatamente
+        updateCountdown();
+        // Actualizar cada segundo
+        setInterval(updateCountdown, 1000);
+        console.log('⏰ Countdown iniciado - Actualizando cada segundo');
+    } else if (countdownContainer) {
+        // Si no estamos en preview mode, ocultar el countdown
+        countdownContainer.style.display = 'none';
+    }
 });
 
 // Scroll Progress Bar
