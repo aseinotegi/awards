@@ -2,10 +2,39 @@
 // CARGA DE CONFIGURACIÓN YAML
 // ================================
 
+// ================================
+// SISTEMA DE REVELACIÓN AUTOMÁTICA
+// ================================
+// Fecha y hora en que se revelan los ganadores automáticamente
+// Formato: new Date(año, mes-1, día, hora, minuto)
+// NOTA: Los meses en JavaScript van de 0-11, así que enero = 0
+const REVEAL_DATE = new Date(2026, 0, 17, 15, 0, 0); // 17 de enero 2026 a las 15:00
+
+/**
+ * Verifica si ya ha pasado la hora de revelación
+ * @returns {boolean} true si ya pasó la hora de revelar los ganadores
+ */
+function shouldRevealWinners() {
+    const now = new Date();
+    const shouldReveal = now >= REVEAL_DATE;
+
+    if (shouldReveal) {
+        console.log('🎉 ¡Es hora de revelar los ganadores! La fecha de revelación ha pasado.');
+    } else {
+        const timeRemaining = REVEAL_DATE - now;
+        const hours = Math.floor(timeRemaining / (1000 * 60 * 60));
+        const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+        console.log(`⏰ Revelación programada para: ${REVEAL_DATE.toLocaleString()}`);
+        console.log(`⏳ Tiempo restante: ${hours} horas y ${minutes} minutos`);
+    }
+
+    return shouldReveal;
+}
+
 // Configuración inline (se usa cuando no se puede cargar config.yaml, por ejemplo con file://)
 // CAMBIAR AQUÍ EL VALOR DE preview_mode TAMBIÉN SI SE CAMBIA EN config.yaml
 const INLINE_CONFIG = {
-    preview_mode: false, // Cambiar a true para activar modo teaser
+    preview_mode: true, // Cambiar a true para activar modo teaser
     coming_soon_text: "Próximamente",
     coming_soon_subtitle: "Los ganadores serán revelados en la Gala",
     spoiler_warning: "🔒 Vista previa sin spoilers — Los ganadores serán revelados en la Gala"
@@ -66,8 +95,20 @@ async function loadConfig() {
 loadConfig().then(config => {
     const body = document.body;
 
+    // ================================
+    // VERIFICACIÓN AUTOMÁTICA DE REVELACIÓN
+    // ================================
+    // Si ya pasó la hora de revelación, forzar preview_mode a false
+    // Esto tiene prioridad sobre el valor del config.yaml
+    let effectivePreviewMode = config.preview_mode;
+
+    if (shouldRevealWinners()) {
+        effectivePreviewMode = false;
+        console.log('🔓 Preview mode desactivado automáticamente por hora de revelación');
+    }
+
     // Activar/desactivar modo preview
-    if (config.preview_mode) {
+    if (effectivePreviewMode) {
         body.classList.add('preview-mode');
     } else {
         body.classList.remove('preview-mode');
